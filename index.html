@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8f5f5f">
+  <meta name="description" content="Luxy & Love Postnatal Wellness Home is a luxury confinement centre in Ipoh offering premium mother care, 24-hour newborn care, wellness treatments and nutritious confinement cuisine.">
+  <meta name="keywords" content="Confinement Centre Ipoh, Postnatal Wellness Home Ipoh, 月子中心怡保, Pantang Centre Ipoh, Luxury Confinement Centre Malaysia">
+  <meta name="author" content="Luxy & Love Postnatal Wellness Home">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luxylove.com.my/">
+  <meta property="og:title" content="Luxy & Love | Luxury Postnatal Wellness Home in Ipoh">
+  <meta property="og:description" content="Because every mother deserves to be loved. Premium postpartum recovery and newborn care in the heart of Ipoh.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=1600&q=85">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://luxylove.com.my/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: { 50: '#fcf7f7', 100: '#f6e9e9', 300: '#ddb6b6', 500: '#c98a8a', 600: '#ad6d6d', 800: '#704747' },
+            gold: '#D4AF37',
+            cream: '#FAF7F4',
+            charcoal: '#333333'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            luxe: '0 24px 70px rgba(74, 45, 45, .12)',
+            soft: '0 10px 35px rgba(74, 45, 45, .08)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <title>Luxury Confinement Centre Ipoh | Luxy & Love Postnatal Wellness Home</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { overflow-x: hidden; }
+    ::selection { background: #c98a8a; color: #fff; }
+    .nav-scrolled { background: rgba(250,247,244,.92); box-shadow: 0 8px 30px rgba(50,30,30,.08); backdrop-filter: blur(18px); }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.06); transition: opacity 1.2s ease, transform 7s ease; }
+    .hero-slide.active { opacity: 1; transform: scale(1); }
+    .hero-gradient { background: linear-gradient(90deg, rgba(35,24,24,.74) 0%, rgba(61,39,39,.48) 45%, rgba(30,20,20,.12) 100%); }
+    .gold-line { background: linear-gradient(90deg, transparent, #D4AF37, transparent); }
+    .text-gradient { background: linear-gradient(120deg, #a96969, #D4AF37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .glass { background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.65); backdrop-filter: blur(18px); }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.from-left { transform: translateX(-35px); }
+    .reveal.from-right { transform: translateX(35px); }
+    .reveal.zoom { transform: scale(.94); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .masonry { columns: 1; column-gap: 1rem; }
+    .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+    @media (min-width: 640px) { .masonry { columns: 2; } }
+    @media (min-width: 1024px) { .masonry { columns: 3; } }
+    .image-zoom img { transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+    .image-zoom:hover img { transform: scale(1.06); }
+    .floating-label input:focus + label, .floating-label input:not(:placeholder-shown) + label,
+    .floating-label textarea:focus + label, .floating-label textarea:not(:placeholder-shown) + label {
+      transform: translateY(-1.55rem) scale(.82); color: #ad6d6d; background: #fff; padding: 0 .35rem;
+    }
+    .floating-label label { transition: .2s ease; transform-origin: left; }
+    .scroll-dot { animation: scroll 1.8s infinite; }
+    @keyframes scroll { 0% { transform: translateY(0); opacity: 0; } 35% { opacity: 1; } 100% { transform: translateY(13px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Luxy & Love Postnatal Wellness Home",
+    "alternateName": "奢华の爱产后养生调理之家",
+    "description": "Luxury postnatal wellness and confinement care in Ipoh, Malaysia.",
+    "url": "https://luxylove.com.my",
+    "telephone": "+60194193862",
+    "email": "luxylove2020@gmail.com",
+    "image": "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=1600&q=85",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "25, Jalan Batik 10, Taman Sin Far",
+      "addressLocality": "Ipoh",
+      "addressRegion": "Perak",
+      "postalCode": "31650",
+      "addressCountry": "MY"
+    },
+    "sameAs": ["https://www.facebook.com/luxylovepostnatalwellnesshome/"]
+  }
+  </script>
+</head>
+<body class="bg-cream font-body text-charcoal antialiased">
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-24 lg:px-8">
+      <a href="#home" class="relative z-50 flex items-center gap-3" aria-label="Luxy and Love home">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 bg-white/90 font-display text-xl text-rose-600">L<span class="text-gold">&</span>L</span>
+        <span class="leading-tight">
+          <span class="block font-display text-xl font-semibold text-white transition-colors nav-logo">Luxy & Love</span>
+          <span class="block text-[9px] uppercase tracking-[.24em] text-white/75 transition-colors nav-sub">Postnatal Wellness</span>
+        </span>
+      </a>
+      <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+        <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#story">Our Story</a>
+        <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#services">Services</a>
+        <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#facilities">Facilities</a>
+        <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#cuisine">Cuisine</a>
+        <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#contact">Contact</a>
+        <a href="#contact" class="rounded-full border border-white/50 bg-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md transition hover:border-gold hover:bg-gold hover:text-white">Schedule a Visit</a>
+      </nav>
+      <button id="menuBtn" class="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="pointer-events-none absolute inset-x-0 top-0 flex min-h-screen translate-y-[-100%] flex-col items-center justify-center gap-7 bg-cream opacity-0 transition-all duration-500 lg:hidden">
+      <a class="mobile-link font-display text-3xl text-charcoal" href="#story">Our Story</a>
+      <a class="mobile-link font-display text-3xl text-charcoal" href="#services">Services</a>
+      <a class="mobile-link font-display text-3xl text-charcoal" href="#facilities">Facilities</a>
+      <a class="mobile-link font-display text-3xl text-charcoal" href="#cuisine">Cuisine</a>
+      <a class="mobile-link font-display text-3xl text-charcoal" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="relative flex min-h-[760px] h-screen items-center overflow-hidden">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="hero-slide active bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=2000&q=88')"></div>
+        <div class="hero-slide bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=88')"></div>
+        <div class="hero-slide bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=2000&q=88')"></div>
+        <div class="hero-slide bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=88')"></div>
+        <div class="hero-gradient absolute inset-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20"></div>
+      </div>
+      <div class="relative z-10 mx-auto w-full max-w-7xl px-5 pt-24 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="mb-6 flex items-center gap-4 opacity-0 animate-[fadeIn_.8s_.2s_forwards]">
+            <span class="h-px w-12 bg-gold"></span>
+            <p class="text-xs font-medium uppercase tracking-[.3em] text-white/90">A sanctuary for new beginnings</p>
+          </div>
+          <h1 class="font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl lg:text-8xl">
+            Luxy <span class="italic text-rose-300">&</span> Love
+            <span class="mt-2 block text-3xl font-medium sm:text-4xl lg:text-5xl">Postnatal Wellness Home</span>
+          </h1>
+          <p class="mt-5 font-display text-lg tracking-wide text-white/80 sm:text-xl">奢华の爱产后养生调理之家</p>
+          <p class="mt-7 max-w-2xl text-base font-light leading-8 text-white/85 sm:text-lg">
+            Experience premium postpartum recovery, professional newborn care, nutritious confinement meals, and personalised wellness support in the heart of Ipoh.
+          </p>
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="#contact" class="group inline-flex items-center justify-center gap-3 rounded-full bg-rose-500 px-7 py-4 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-1 hover:bg-rose-600">
+              Schedule A Visit <i data-lucide="arrow-up-right" class="h-4 w-4 transition group-hover:rotate-45"></i>
+            </a>
+            <a href="https://wa.me/60194193862?text=Hello%20Luxy%20%26%20Love%2C%20I%20would%20like%20to%20know%20more." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/50 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-1 hover:bg-white hover:text-charcoal">
+              <i data-lucide="message-circle" class="h-4 w-4"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/70 sm:flex">
+        <span class="text-[9px] uppercase tracking-[.3em]">Discover</span>
+        <span class="relative h-9 w-5 rounded-full border border-white/50"><span class="scroll-dot absolute left-1/2 top-1 h-1 w-1 -translate-x-1/2 rounded-full bg-white"></span></span>
+      </div>
+      <div class="absolute bottom-7 right-6 z-10 hidden gap-2 sm:flex lg:right-12">
+        <button class="hero-prev flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white backdrop-blur transition hover:bg-white hover:text-charcoal" aria-label="Previous hero slide"><i data-lucide="arrow-left" class="h-4 w-4"></i></button>
+        <button class="hero-next flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white backdrop-blur transition hover:bg-white hover:text-charcoal" aria-label="Next hero slide"><i data-lucide="arrow-right" class="h-4 w-4"></i></button>
+      </div>
+    </section>
+
+    <section class="relative z-20 mx-auto -mt-1 max-w-7xl px-5 lg:-mt-12 lg:px-8">
+      <div class="glass grid overflow-hidden rounded-3xl shadow-luxe sm:grid-cols-2 lg:grid-cols-6">
+        <div class="reveal flex items-center gap-3 border-b border-rose-100 p-5 lg:border-b-0 lg:border-r">
+          <i data-lucide="badge-check" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">Professional Caregivers</span>
+        </div>
+        <div class="reveal flex items-center gap-3 border-b border-rose-100 p-5 lg:border-b-0 lg:border-r" style="transition-delay:.08s">
+          <i data-lucide="clock-3" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">24-Hour Nursery Care</span>
+        </div>
+        <div class="reveal flex items-center gap-3 border-b border-rose-100 p-5 lg:border-b-0 lg:border-r" style="transition-delay:.16s">
+          <i data-lucide="soup" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">Nutritious Meals</span>
+        </div>
+        <div class="reveal flex items-center gap-3 border-b border-rose-100 p-5 lg:border-b-0 lg:border-r" style="transition-delay:.24s">
+          <i data-lucide="sparkles" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">Personalised Wellness</span>
+        </div>
+        <div class="reveal flex items-center gap-3 border-b border-rose-100 p-5 lg:border-b-0 lg:border-r" style="transition-delay:.32s">
+          <i data-lucide="leaf" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">TCM Recovery Support</span>
+        </div>
+        <div class="reveal flex items-center gap-3 p-5" style="transition-delay:.4s">
+          <i data-lucide="bed-double" class="h-6 w-6 shrink-0 text-rose-500"></i><span class="text-xs font-medium leading-5">Luxury Accommodation</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="overflow-hidden py-24 lg:py-36">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:gap-24 lg:px-8">
+        <div class="reveal from-left relative">
+          <div class="absolute -left-8 -top-8 h-40 w-40 rounded-full border border-gold/30"></div>
+          <div class="image-zoom relative overflow-hidden rounded-[2rem] shadow-luxe">
+            <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=1100&q=85" alt="Mother tenderly holding her newborn baby" class="h-[560px] w-full object-cover" loading="lazy">
+          </div>
+          <div class="glass absolute -bottom-8 -right-3 max-w-[230px] rounded-2xl p-6 shadow-soft sm:right-8">
+            <div class="font-display text-4xl text-gradient">Love</div>
+            <p class="mt-1 text-xs leading-5 text-charcoal/65">is at the heart of everything we do.</p>
+          </div>
+        </div>
+        <div class="reveal from-right">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Our Story</p>
+          <h2 class="font-display text-4xl font-semibold leading-tight text-charcoal sm:text-5xl lg:text-6xl">A Husband's Love<br><span class="italic text-rose-500">For His Wife</span></h2>
+          <div class="my-7 h-px w-20 bg-gold"></div>
+          <p class="text-lg font-medium leading-8">Luxy & Love was founded with one simple belief:</p>
+          <p class="mt-4 leading-8 text-charcoal/65">Every mother deserves healing, recovery, rest, and unconditional care after bringing new life into the world.</p>
+          <p class="mt-4 leading-8 text-charcoal/65">Our name reflects the deepest love a husband can give his wife, ensuring she receives comfort, nourishment, peace of mind, and professional support throughout her postpartum journey.</p>
+          <blockquote class="mt-8 border-l-2 border-gold pl-6 font-display text-2xl italic leading-9 text-rose-600">“At Luxy & Love, mothers are not simply cared for. They are cherished.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-24 lg:py-32">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">The Luxy & Love Difference</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">Care, elevated.</h2>
+          <p class="mt-5 leading-7 text-charcoal/60">Thoughtful expertise and refined comfort come together for a recovery experience designed entirely around mother and baby.</p>
+        </div>
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="stethoscope"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Professional Medical Support</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">Attentive wellness monitoring and experienced support throughout your stay.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe" style="transition-delay:.08s">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="baby"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Dedicated Newborn Care</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">Gentle, round-the-clock nursery care that lets parents rest with confidence.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe" style="transition-delay:.16s">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="clipboard-check"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Personalised Recovery</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">A tailored programme thoughtfully shaped around your body and wellbeing.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="heart-handshake"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Emotional Wellness</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">A nurturing environment where every mother feels heard, reassured and valued.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe" style="transition-delay:.08s">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="flower-2"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Traditional Chinese Recovery</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">Time-honoured principles blended with modern postnatal wellness practices.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-rose-100 bg-cream/50 p-8 transition duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-luxe" style="transition-delay:.16s">
+            <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 transition group-hover:bg-rose-500 group-hover:text-white"><i data-lucide="hotel"></i></span>
+            <h3 class="mt-6 font-display text-2xl">Luxury Accommodation</h3><p class="mt-3 text-sm leading-7 text-charcoal/60">Serene, private suites with the warmth and polish of a boutique retreat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-24 lg:py-32">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Our Services</p><h2 class="mt-4 max-w-xl font-display text-4xl font-semibold sm:text-5xl">Everything you need to recover beautifully.</h2></div>
+          <p class="max-w-md text-sm leading-7 text-charcoal/60">From expert mother and baby care to restorative treatments, every detail is designed to help you feel stronger, calmer and deeply cared for.</p>
+        </div>
+        <div class="mt-14 grid gap-7 lg:grid-cols-3">
+          <article class="reveal image-zoom group overflow-hidden rounded-[2rem] bg-white shadow-soft">
+            <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=85" alt="Postnatal mother care and wellness support" class="h-full w-full object-cover" loading="lazy"></div>
+            <div class="p-8"><span class="text-xs font-semibold uppercase tracking-widest text-rose-500">01</span><h3 class="mt-2 font-display text-3xl">Mother Care</h3><ul class="mt-5 grid gap-3 text-sm text-charcoal/65"><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Wellness Monitoring</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Breastfeeding Support</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Recovery Consultation</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Emotional Care</li></ul></div>
+          </article>
+          <article class="reveal image-zoom group overflow-hidden rounded-[2rem] bg-white shadow-soft" style="transition-delay:.1s">
+            <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=900&q=85" alt="Gentle newborn baby care" class="h-full w-full object-cover" loading="lazy"></div>
+            <div class="p-8"><span class="text-xs font-semibold uppercase tracking-widest text-rose-500">02</span><h3 class="mt-2 font-display text-3xl">Baby Care</h3><ul class="mt-5 grid gap-3 text-sm text-charcoal/65"><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Nursery Care</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Feeding Support</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Bathing Assistance</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Newborn Monitoring</li></ul></div>
+          </article>
+          <article class="reveal image-zoom group overflow-hidden rounded-[2rem] bg-white shadow-soft" style="transition-delay:.2s">
+            <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=85" alt="Restorative postnatal wellness massage" class="h-full w-full object-cover" loading="lazy"></div>
+            <div class="p-8"><span class="text-xs font-semibold uppercase tracking-widest text-rose-500">03</span><h3 class="mt-2 font-display text-3xl">Wellness Treatments</h3><ul class="mt-5 grid gap-3 text-sm text-charcoal/65"><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Postnatal Massage</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Herbal Therapy</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Hair Wash Treatment</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 text-gold"></i>Facial Treatment</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilities" class="bg-charcoal py-24 text-white lg:py-32">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center"><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-300">Luxury Facilities</p><h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">Your private sanctuary.</h2><p class="mt-5 leading-7 text-white/55">Quiet luxury, warm details, and spaces created for true rest.</p></div>
+        <div class="masonry mt-14">
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Premium Suite"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85" alt="Elegant premium private suite" class="h-80 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Premium Suite</span></button>
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Dining Area"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="Refined private dining area" class="h-64 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Dining Area</span></button>
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Baby Nursery"><img src="https://images.unsplash.com/photo-1591161555818-7b9debeccc07?auto=format&fit=crop&w=1000&q=85" alt="Calm and safe baby nursery" class="h-64 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Baby Nursery</span></button>
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Lounge Area"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85" alt="Comfortable luxury lounge" class="h-80 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Lounge Area</span></button>
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Wellness Treatment Room"><img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1000&q=85" alt="Serene wellness treatment room" class="h-80 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Wellness Room</span></button>
+          <button class="gallery-item masonry-item image-zoom relative w-full overflow-hidden rounded-3xl text-left" data-label="Reception"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=85" alt="Welcoming boutique reception" class="h-64 w-full object-cover" loading="lazy"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20 font-display text-xl">Reception</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cuisine" class="overflow-hidden py-24 lg:py-32">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:gap-24 lg:px-8">
+        <div class="reveal from-left order-2 lg:order-1">
+          <p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Confinement Cuisine</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">Nutrition designed<br><span class="italic text-rose-500">for recovery.</span></h2>
+          <p class="mt-6 leading-8 text-charcoal/60">Beautifully prepared meals balance traditional confinement wisdom with modern nutrition, bringing comfort and nourishment to every day of your stay.</p>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-soft"><i data-lucide="heart-pulse" class="text-rose-500"></i><span class="text-sm font-medium">Promote healing</span></div>
+            <div class="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-soft"><i data-lucide="milk" class="text-rose-500"></i><span class="text-sm font-medium">Support lactation</span></div>
+            <div class="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-soft"><i data-lucide="battery-charging" class="text-rose-500"></i><span class="text-sm font-medium">Restore energy</span></div>
+            <div class="flex items-center gap-3 rounded-2xl bg-white p-4 shadow-soft"><i data-lucide="sprout" class="text-rose-500"></i><span class="text-sm font-medium">Aid recovery</span></div>
+          </div>
+        </div>
+        <div class="reveal from-right order-1 lg:order-2">
+          <div class="relative overflow-hidden rounded-[2rem] shadow-luxe">
+            <div id="foodTrack" class="flex transition-transform duration-700">
+              <figure class="w-full shrink-0"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=85" alt="Nutritious recovery meal" class="h-[520px] w-full object-cover" loading="lazy"><figcaption class="absolute bottom-7 left-7 rounded-full bg-white/90 px-5 py-3 text-xs font-semibold uppercase tracking-widest backdrop-blur">Recovery Meals</figcaption></figure>
+              <figure class="w-full shrink-0"><img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1100&q=85" alt="Traditional herbal soup" class="h-[520px] w-full object-cover" loading="lazy"></figure>
+              <figure class="w-full shrink-0"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1100&q=85" alt="Fresh healthy confinement ingredients" class="h-[520px] w-full object-cover" loading="lazy"></figure>
+            </div>
+            <div class="absolute bottom-6 right-6 flex gap-2"><button id="foodPrev" class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-charcoal shadow transition hover:bg-rose-500 hover:text-white" aria-label="Previous meal"><i data-lucide="arrow-left" class="h-4 w-4"></i></button><button id="foodNext" class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-charcoal shadow transition hover:bg-rose-500 hover:text-white" aria-label="Next meal"><i data-lucide="arrow-right" class="h-4 w-4"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-rose-50 py-24 lg:py-32">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal text-center"><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Your Recovery Journey</p><h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">With you, every step.</h2></div>
+        <div class="relative mt-16 grid gap-8 md:grid-cols-3 lg:grid-cols-6">
+          <div class="absolute left-[8%] right-[8%] top-7 hidden h-px bg-gradient-to-r from-transparent via-gold to-transparent lg:block"></div>
+          <div class="reveal relative text-center"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">01</span><h3 class="mt-5 font-display text-lg">Consultation</h3></div>
+          <div class="reveal relative text-center" style="transition-delay:.08s"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">02</span><h3 class="mt-5 font-display text-lg">Reservation</h3></div>
+          <div class="reveal relative text-center" style="transition-delay:.16s"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">03</span><h3 class="mt-5 font-display text-lg">Arrival</h3></div>
+          <div class="reveal relative text-center" style="transition-delay:.24s"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">04</span><h3 class="mt-5 font-display text-lg">Recovery Plan</h3></div>
+          <div class="reveal relative text-center" style="transition-delay:.32s"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">05</span><h3 class="mt-5 font-display text-lg">Wellness</h3></div>
+          <div class="reveal relative text-center" style="transition-delay:.4s"><span class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold bg-cream font-display text-lg text-rose-600">06</span><h3 class="mt-5 font-display text-lg">Graduation Day</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-24 lg:py-32">
+      <div class="mx-auto max-w-5xl px-5 lg:px-8">
+        <div class="reveal text-center"><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Words From Mothers</p><h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">Loved, in their own words.</h2></div>
+        <div class="reveal relative mt-14 overflow-hidden">
+          <div id="testimonialTrack" class="flex transition-transform duration-700">
+            <article class="w-full shrink-0 px-1 text-center"><div class="mx-auto flex justify-center gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="mx-auto mt-7 max-w-3xl font-display text-2xl italic leading-10 sm:text-3xl">“The team cared for my baby with so much patience, and every meal felt thoughtfully prepared. I could finally rest and focus on healing.”</blockquote><div class="mt-8 flex items-center justify-center gap-4"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=85" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy"><div class="text-left"><strong class="block text-sm">Amanda L.</strong><span class="text-xs text-charcoal/50">First-time mother</span></div></div></article>
+            <article class="w-full shrink-0 px-1 text-center"><div class="mx-auto flex justify-center gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="mx-auto mt-7 max-w-3xl font-display text-2xl italic leading-10 sm:text-3xl">“It felt more like a boutique retreat than a confinement centre. The suite was beautiful and the breastfeeding support gave me real confidence.”</blockquote><div class="mt-8 flex items-center justify-center gap-4"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=85" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy"><div class="text-left"><strong class="block text-sm">Mei Xin T.</strong><span class="text-xs text-charcoal/50">Mother of two</span></div></div></article>
+            <article class="w-full shrink-0 px-1 text-center"><div class="mx-auto flex justify-center gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="mx-auto mt-7 max-w-3xl font-display text-2xl italic leading-10 sm:text-3xl">“My husband and I felt reassured from day one. The caregivers were warm, attentive and always ready whenever we needed them.”</blockquote><div class="mt-8 flex items-center justify-center gap-4"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=85" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy"><div class="text-left"><strong class="block text-sm">Sofia N.</strong><span class="text-xs text-charcoal/50">New mother</span></div></div></article>
+          </div>
+          <div id="testimonialDots" class="mt-10 flex justify-center gap-2"></div>
+        </div>
+        <p class="mt-6 text-center text-xs text-charcoal/40">Sample testimonials for layout preview. Replace with verified client reviews before publishing.</p>
+      </div>
+    </section>
+
+    <section class="py-24 lg:py-32">
+      <div class="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.7fr_1.3fr] lg:gap-24 lg:px-8">
+        <div class="reveal"><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Frequently Asked</p><h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">A little clarity brings peace of mind.</h2><p class="mt-6 leading-7 text-charcoal/60">We’re here to make planning your postpartum journey simple and reassuring.</p><a href="#contact" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-rose-600">Ask us anything <i data-lucide="arrow-right" class="h-4 w-4"></i></a></div>
+        <div class="reveal from-right divide-y divide-rose-200">
+          <div class="faq-item"><button class="faq-button flex w-full items-center justify-between py-6 text-left font-display text-xl" aria-expanded="false">When should I book?<i data-lucide="plus" class="faq-icon h-5 w-5 text-rose-500 transition"></i></button><div class="faq-answer grid grid-rows-[0fr] transition-all duration-300"><p class="overflow-hidden pb-0 text-sm leading-7 text-charcoal/60 transition-all">We recommend enquiring during your second trimester, as suites are limited and popular delivery periods fill early.</p></div></div>
+          <div class="faq-item"><button class="faq-button flex w-full items-center justify-between py-6 text-left font-display text-xl" aria-expanded="false">How long should I stay?<i data-lucide="plus" class="faq-icon h-5 w-5 text-rose-500 transition"></i></button><div class="faq-answer grid grid-rows-[0fr] transition-all duration-300"><p class="overflow-hidden pb-0 text-sm leading-7 text-charcoal/60 transition-all">A traditional confinement stay is usually 28 days, though we can discuss the programme and duration that best suit your needs.</p></div></div>
+          <div class="faq-item"><button class="faq-button flex w-full items-center justify-between py-6 text-left font-display text-xl" aria-expanded="false">Can family members visit?<i data-lucide="plus" class="faq-icon h-5 w-5 text-rose-500 transition"></i></button><div class="faq-answer grid grid-rows-[0fr] transition-all duration-300"><p class="overflow-hidden pb-0 text-sm leading-7 text-charcoal/60 transition-all">Yes. Visits are welcomed during designated hours, with sensible hygiene and nursery protocols to protect mothers and newborns.</p></div></div>
+          <div class="faq-item"><button class="faq-button flex w-full items-center justify-between py-6 text-left font-display text-xl" aria-expanded="false">Do you support breastfeeding?<i data-lucide="plus" class="faq-icon h-5 w-5 text-rose-500 transition"></i></button><div class="faq-answer grid grid-rows-[0fr] transition-all duration-300"><p class="overflow-hidden pb-0 text-sm leading-7 text-charcoal/60 transition-all">Yes. Our team provides practical guidance with latching, feeding routines, expressing and maternal nutrition.</p></div></div>
+          <div class="faq-item"><button class="faq-button flex w-full items-center justify-between py-6 text-left font-display text-xl" aria-expanded="false">Are nurses available?<i data-lucide="plus" class="faq-icon h-5 w-5 text-rose-500 transition"></i></button><div class="faq-answer grid grid-rows-[0fr] transition-all duration-300"><p class="overflow-hidden pb-0 text-sm leading-7 text-charcoal/60 transition-all">Our trained care team supports mothers and newborns around the clock. Contact us for current staffing and clinical coverage details.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-5 text-center md:flex-row md:text-left lg:px-8">
+        <div class="reveal"><p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-500">Follow Our Journey</p><h2 class="mt-3 font-display text-3xl">See life at Luxy & Love.</h2><p class="mt-2 text-sm text-charcoal/55">Latest moments, stories and updates from our Facebook community.</p></div>
+        <a href="https://www.facebook.com/luxylovepostnatalwellnesshome/" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-3 rounded-full bg-[#1877F2] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-1"><i data-lucide="facebook" class="h-5 w-5"></i> Follow on Facebook</a>
+      </div>
+    </section>
+
+    <section id="contact" class="relative overflow-hidden bg-charcoal py-24 text-white lg:py-32">
+      <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-rose-300/10"></div>
+      <div class="absolute -right-16 -top-16 h-72 w-72 rounded-full border border-gold/10"></div>
+      <div class="relative mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:gap-24 lg:px-8">
+        <div class="reveal from-left">
+          <p class="text-xs font-semibold uppercase tracking-[.28em] text-rose-300">Begin Your Journey</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">Come and feel<br><span class="italic text-rose-300">the difference.</span></h2>
+          <p class="mt-6 max-w-lg leading-8 text-white/55">Schedule a private visit and discover a place where exceptional care feels beautifully personal.</p>
+          <div class="mt-10 space-y-6 text-sm">
+            <a href="https://maps.google.com/?q=25+Jalan+Batik+10+Taman+Sin+Far+31650+Ipoh" target="_blank" rel="noopener" class="flex gap-4 text-white/75 transition hover:text-white"><i data-lucide="map-pin" class="mt-1 h-5 w-5 shrink-0 text-rose-300"></i><span>25, Jalan Batik 10, Taman Sin Far,<br>31650 Ipoh, Perak, Malaysia</span></a>
+            <a href="tel:+60194193862" class="flex items-center gap-4 text-white/75 transition hover:text-white"><i data-lucide="phone" class="h-5 w-5 text-rose-300"></i>019-419 3862</a>
+            <a href="mailto:luxylove2020@gmail.com" class="flex items-center gap-4 text-white/75 transition hover:text-white"><i data-lucide="mail" class="h-5 w-5 text-rose-300"></i>luxylove2020@gmail.com</a>
+          </div>
+        </div>
+        <form id="contactForm" class="reveal from-right rounded-[2rem] bg-white p-7 text-charcoal shadow-luxe sm:p-10">
+          <h3 class="font-display text-2xl">Schedule a private visit</h3>
+          <p class="mt-2 text-xs leading-5 text-charcoal/50">Complete the details below and continue the conversation on WhatsApp.</p>
+          <div class="mt-8 grid gap-7 sm:grid-cols-2">
+            <div class="floating-label relative"><input id="name" name="name" type="text" required placeholder=" " class="peer w-full rounded-xl border border-rose-100 bg-transparent px-4 py-4 text-sm outline-none transition focus:border-rose-500"><label for="name" class="pointer-events-none absolute left-4 top-4 text-sm text-charcoal/45">Your name</label></div>
+            <div class="floating-label relative"><input id="phone" name="phone" type="tel" required placeholder=" " class="w-full rounded-xl border border-rose-100 bg-transparent px-4 py-4 text-sm outline-none transition focus:border-rose-500"><label for="phone" class="pointer-events-none absolute left-4 top-4 text-sm text-charcoal/45">Phone number</label></div>
+            <div class="floating-label relative sm:col-span-2"><input id="dueDate" name="dueDate" type="text" placeholder=" " onfocus="this.type='date'" class="w-full rounded-xl border border-rose-100 bg-transparent px-4 py-4 text-sm outline-none transition focus:border-rose-500"><label for="dueDate" class="pointer-events-none absolute left-4 top-4 text-sm text-charcoal/45">Expected delivery date</label></div>
+            <div class="floating-label relative sm:col-span-2"><textarea id="message" name="message" rows="4" placeholder=" " class="w-full resize-none rounded-xl border border-rose-100 bg-transparent px-4 py-4 text-sm outline-none transition focus:border-rose-500"></textarea><label for="message" class="pointer-events-none absolute left-4 top-4 text-sm text-charcoal/45">How can we help?</label></div>
+          </div>
+          <button type="submit" class="mt-7 flex w-full items-center justify-center gap-3 rounded-full bg-rose-500 px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-rose-600"><i data-lucide="message-circle" class="h-4 w-4"></i> Send via WhatsApp</button>
+        </form>
+      </div>
+      <div class="relative mx-auto mt-16 max-w-7xl px-5 lg:px-8">
+        <iframe title="Map showing Luxy and Love in Ipoh" src="https://www.google.com/maps?q=25%20Jalan%20Batik%2010%2C%20Taman%20Sin%20Far%2C%2031650%20Ipoh%2C%20Perak&output=embed" class="h-72 w-full rounded-[2rem] border-0 opacity-80 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#282525] py-10 text-white/50">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 text-center sm:flex-row sm:text-left lg:px-8">
+      <div><div class="font-display text-xl text-white">Luxy <span class="text-rose-300">&</span> Love</div><p class="mt-1 text-[10px] uppercase tracking-[.2em]">Because Every Mother Deserves To Be Loved</p></div>
+      <p class="text-xs">&copy; <span id="year"></span> Luxy & Love. All rights reserved.</p>
+      <div class="flex gap-5 text-xs"><a href="https://www.facebook.com/luxylovepostnatalwellnesshome/" target="_blank" rel="noopener" class="transition hover:text-white">Facebook</a><a href="mailto:luxylove2020@gmail.com" class="transition hover:text-white">Email</a></div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-20 right-5 z-40 flex flex-col gap-3">
+    <a href="https://wa.me/60194193862" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition hover:-translate-y-1"><i data-lucide="message-circle" class="h-5 w-5"></i></a>
+    <a href="tel:+60194193862" aria-label="Call Luxy and Love" class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-500 text-white shadow-xl transition hover:-translate-y-1"><i data-lucide="phone" class="h-5 w-5"></i></a>
+  </div>
+  <button id="backToTop" aria-label="Back to top" class="pointer-events-none fixed bottom-5 right-5 z-40 flex h-12 w-12 translate-y-4 items-center justify-center rounded-full border border-rose-200 bg-white text-rose-600 opacity-0 shadow-xl transition hover:-translate-y-1"><i data-lucide="arrow-up" class="h-5 w-5"></i></button>
+
+  <div id="lightbox" class="pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-5 opacity-0 transition duration-300" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button id="closeLightbox" class="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white" aria-label="Close lightbox"><i data-lucide="x"></i></button>
+    <figure class="max-w-5xl"><img id="lightboxImage" src="" alt="" class="max-h-[82vh] rounded-2xl object-contain"><figcaption id="lightboxCaption" class="mt-4 text-center font-display text-xl text-white"></figcaption></figure>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const navbar = document.getElementById('navbar');
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const backToTop = document.getElementById('backToTop');
+      let menuOpen = false;
+
+      const setNav = () => {
+        const scrolled = window.scrollY > 40;
+        navbar.classList.toggle('nav-scrolled', scrolled);
+        document.querySelectorAll('.nav-link').forEach(el => {
+          el.classList.toggle('text-white', !scrolled);
+          el.classList.toggle('text-charcoal', scrolled);
+        });
+        document.querySelector('.nav-logo').classList.toggle('text-white', !scrolled);
+        document.querySelector('.nav-logo').classList.toggle('text-charcoal', scrolled);
+        document.querySelector('.nav-sub').classList.toggle('text-white/75', !scrolled);
+        document.querySelector('.nav-sub').classList.toggle('text-charcoal/50', scrolled);
+        if (!menuOpen) {
+          menuBtn.classList.toggle('text-white', !scrolled);
+          menuBtn.classList.toggle('text-charcoal', scrolled);
+          menuBtn.classList.toggle('border-white/40', !scrolled);
+          menuBtn.classList.toggle('border-rose-200', scrolled);
+        }
+        backToTop.classList.toggle('opacity-0', window.scrollY < 500);
+        backToTop.classList.toggle('translate-y-4', window.scrollY < 500);
+        backToTop.classList.toggle('pointer-events-none', window.scrollY < 500);
+      };
+      window.addEventListener('scroll', setNav, { passive: true });
+      setNav();
+
+      const toggleMenu = () => {
+        menuOpen = !menuOpen;
+        menuBtn.setAttribute('aria-expanded', String(menuOpen));
+        mobileMenu.classList.toggle('pointer-events-none', !menuOpen);
+        mobileMenu.classList.toggle('translate-y-[-100%]', !menuOpen);
+        mobileMenu.classList.toggle('opacity-0', !menuOpen);
+        menuBtn.classList.toggle('text-charcoal', menuOpen);
+        menuBtn.classList.toggle('border-rose-200', menuOpen);
+        menuBtn.innerHTML = menuOpen ? '<i data-lucide="x" class="h-5 w-5"></i>' : '<i data-lucide="menu" class="h-5 w-5"></i>';
+        lucide.createIcons();
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+      };
+      menuBtn.addEventListener('click', toggleMenu);
+      document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', toggleMenu));
+
+      const heroSlides = [...document.querySelectorAll('.hero-slide')];
+      let heroIndex = 0;
+      let heroTimer;
+      const showHero = index => {
+        heroSlides[heroIndex].classList.remove('active');
+        heroIndex = (index + heroSlides.length) % heroSlides.length;
+        heroSlides[heroIndex].classList.add('active');
+      };
+      const startHero = () => { clearInterval(heroTimer); heroTimer = setInterval(() => showHero(heroIndex + 1), 6000); };
+      document.querySelector('.hero-next').addEventListener('click', () => { showHero(heroIndex + 1); startHero(); });
+      document.querySelector('.hero-prev').addEventListener('click', () => { showHero(heroIndex - 1); startHero(); });
+      startHero();
+
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      let foodIndex = 0;
+      const foodTrack = document.getElementById('foodTrack');
+      const moveFood = direction => {
+        foodIndex = (foodIndex + direction + 3) % 3;
+        foodTrack.style.transform = `translateX(-${foodIndex * 100}%)`;
+      };
+      document.getElementById('foodNext').addEventListener('click', () => moveFood(1));
+      document.getElementById('foodPrev').addEventListener('click', () => moveFood(-1));
+
+      const testimonialTrack = document.getElementById('testimonialTrack');
+      const dotsContainer = document.getElementById('testimonialDots');
+      let testimonialIndex = 0;
+      let testimonialTimer;
+      const setTestimonial = index => {
+        testimonialIndex = index;
+        testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+        [...dotsContainer.children].forEach((dot, i) => {
+          dot.classList.toggle('bg-rose-500', i === index);
+          dot.classList.toggle('bg-rose-200', i !== index);
+          dot.style.width = i === index ? '2rem' : '.5rem';
+        });
+      };
+      for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'h-2 rounded-full transition-all bg-rose-200';
+        dot.setAttribute('aria-label', `Show testimonial ${i + 1}`);
+        dot.addEventListener('click', () => { setTestimonial(i); restartTestimonials(); });
+        dotsContainer.appendChild(dot);
+      }
+      const restartTestimonials = () => {
+        clearInterval(testimonialTimer);
+        testimonialTimer = setInterval(() => setTestimonial((testimonialIndex + 1) % 3), 5000);
+      };
+      setTestimonial(0);
+      restartTestimonials();
+
+      document.querySelectorAll('.faq-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.closest('.faq-item');
+          const answer = item.querySelector('.faq-answer');
+          const paragraph = answer.querySelector('p');
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.faq-button').forEach(other => {
+            other.setAttribute('aria-expanded', 'false');
+            other.closest('.faq-item').querySelector('.faq-answer').classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+            other.closest('.faq-item').querySelector('.faq-answer p').classList.replace('pb-6', 'pb-0');
+            other.querySelector('.faq-icon').style.transform = '';
+          });
+          if (!isOpen) {
+            button.setAttribute('aria-expanded', 'true');
+            answer.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]');
+            paragraph.classList.replace('pb-0', 'pb-6');
+            button.querySelector('.faq-icon').style.transform = 'rotate(45deg)';
+          }
+        });
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeLightbox = () => {
+        lightbox.classList.add('pointer-events-none', 'opacity-0');
+        document.body.style.overflow = '';
+      };
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const image = item.querySelector('img');
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+          lightboxCaption.textContent = item.dataset.label;
+          lightbox.classList.remove('pointer-events-none', 'opacity-0');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeLightbox(); });
+
+      document.getElementById('contactForm').addEventListener('submit', event => {
+        event.preventDefault();
+        const form = new FormData(event.currentTarget);
+        const text = `Hello Luxy & Love, I would like to schedule a visit.%0A%0AName: ${encodeURIComponent(form.get('name'))}%0APhone: ${encodeURIComponent(form.get('phone'))}%0AExpected delivery date: ${encodeURIComponent(form.get('dueDate') || 'Not specified')}%0AMessage: ${encodeURIComponent(form.get('message') || 'I would like to know more about your packages.')}`;
+        window.open(`https://wa.me/60194193862?text=${text}`, '_blank', 'noopener');
+      });
+
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    });
+  </script>
+</body>
+</html>
