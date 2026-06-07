@@ -869,12 +869,46 @@
 
       document.getElementById('contactForm').addEventListener('submit', event => {
         event.preventDefault();
-        const form = new FormData(event.currentTarget);
-        const phone = form.get('phone').replace(/\D/g, ''); // Remove non-digit characters
-        const text = `Hello Luxy & Love, I would like to schedule a visit.%0A%0AName: ${encodeURIComponent(form.get('name'))}%0APhone: ${encodeURIComponent(phone)}%0AExpected delivery date: ${encodeURIComponent(form.get('dueDate') || 'Not specified')}%0AMessage: ${encodeURIComponent(form.get('message') || 'I would like to know more about your packages.')}`;
-        // Using the proper international format for the phone number
-        const whatsappUrl = `https://wa.me/60194193862?text=${text}`;
-        window.open(whatsappUrl, '_blank', 'noopener');
+        
+        try {
+          // Get form elements directly by their IDs
+          const nameInput = document.getElementById('name');
+          const phoneInput = document.getElementById('phone');
+          const dueDateInput = document.getElementById('dueDate');
+          const messageInput = document.getElementById('message');
+          
+          // Retrieve and validate form values with fallbacks
+          const name = (nameInput && typeof nameInput.value === 'string') ? nameInput.value.trim() : '';
+          const phone = (phoneInput && typeof phoneInput.value === 'string') ? phoneInput.value.replace(/\D/g, '') : '';
+          const dueDate = (dueDateInput && typeof dueDateInput.value === 'string' && dueDateInput.value.trim() !== '') ? dueDateInput.value.trim() : 'Not specified';
+          const message = (messageInput && typeof messageInput.value === 'string' && messageInput.value.trim() !== '') ? messageInput.value.trim() : 'I would like to know more about your packages.';
+          
+          // Validate required fields
+          if (!name || !phone) {
+            alert('Please fill in all required fields (name and phone number)');
+            return;
+          }
+          
+          // Create a properly formatted message with all form data
+          let text = `Hello LuxyLove, I would like to schedule a visit.%0A%0A`;
+          text += `Name: ${encodeURIComponent(name)}%0A`;
+          text += `Phone: ${encodeURIComponent(phone)}%0A`;
+          text += `Expected delivery date: ${encodeURIComponent(dueDate)}%0A`;
+          text += `Message: ${encodeURIComponent(message)}`;
+          
+          // Construct the WhatsApp URL with the business number
+          const whatsappUrl = `https://wa.me/60194193862?text=${text}`;
+          
+          // Log for debugging (will be removed in production)
+          console.log('Form data:', { name, phone, dueDate, message });
+          console.log('WhatsApp URL:', whatsappUrl);
+          
+          // Open WhatsApp in a new tab/window
+          window.open(whatsappUrl, '_blank');
+        } catch (error) {
+          console.error('Error in form submission:', error);
+          alert('There was an error processing your request. Please try again.');
+        }
       });
 
       backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
