@@ -73,6 +73,14 @@
       transform: translateY(-1.55rem) scale(.82); color: #c3437c; background: #fff; padding: 0 .35rem;
     }
     .floating-label label { transition: .2s ease; transform-origin: left; }
+    .language-select {
+      color-scheme: light;
+      background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+      background-position: calc(100% - 13px) 50%, calc(100% - 9px) 50%;
+      background-size: 4px 4px, 4px 4px;
+      background-repeat: no-repeat;
+    }
+    .language-select option { color: #403943; background: #fff; }
     .scroll-dot { animation: scroll 1.8s infinite; }
     @keyframes scroll { 0% { transform: translateY(0); opacity: 0; } 35% { opacity: 1; } 100% { transform: translateY(13px); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) {
@@ -113,12 +121,20 @@
           <span class="block text-[9px] uppercase tracking-[.24em] text-white/75 transition-colors nav-sub">Postnatal Wellness</span>
         </span>
       </a>
-      <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+      <nav class="hidden items-center gap-5 lg:flex" aria-label="Primary navigation">
         <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#story">Our Story</a>
         <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#services">Services</a>
         <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#facilities">Facilities</a>
         <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#cuisine">Cuisine</a>
         <a class="nav-link text-xs font-medium uppercase tracking-widest text-white transition hover:text-gold" href="#contact">Contact</a>
+        <label class="sr-only" for="languageSelect">Language</label>
+        <select id="languageSelect" class="language-select nav-language cursor-pointer appearance-none rounded-full border border-white/50 bg-white/10 py-2.5 pl-4 pr-7 text-xs font-semibold text-white outline-none backdrop-blur-md transition focus:border-gold" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ms">Bahasa Melayu</option>
+          <option value="fr">Français</option>
+        </select>
         <a href="#contact" class="rounded-full border border-white/50 bg-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md transition hover:border-gold hover:bg-gold hover:text-white">Schedule a Visit</a>
       </nav>
       <button id="menuBtn" class="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur lg:hidden" aria-label="Open menu" aria-expanded="false">
@@ -131,6 +147,14 @@
       <a class="mobile-link font-display text-3xl text-charcoal" href="#facilities">Facilities</a>
       <a class="mobile-link font-display text-3xl text-charcoal" href="#cuisine">Cuisine</a>
       <a class="mobile-link font-display text-3xl text-charcoal" href="#contact">Contact</a>
+      <label class="mt-3 text-xs font-semibold uppercase tracking-[.2em] text-rose-600" for="mobileLanguageSelect">Language</label>
+      <select id="mobileLanguageSelect" class="language-select cursor-pointer appearance-none rounded-full border border-rose-200 bg-white py-3 pl-5 pr-9 text-sm font-semibold text-charcoal outline-none focus:border-rose-500" aria-label="Select language">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="ms">Bahasa Melayu</option>
+        <option value="fr">Français</option>
+      </select>
     </div>
   </header>
 
@@ -437,7 +461,181 @@
       const menuBtn = document.getElementById('menuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       const backToTop = document.getElementById('backToTop');
+      const languageSelects = [document.getElementById('languageSelect'), document.getElementById('mobileLanguageSelect')];
       let menuOpen = false;
+
+      const translationRows = {
+        'Luxury Confinement Centre Ipoh | Luxy & Love Postnatal Wellness Home': ['怡保豪华月子中心 | Luxy & Love 产后护理之家', 'イポーの高級産後ケアセンター | Luxy & Love', 'Pusat Berpantang Mewah Ipoh | Luxy & Love', 'Centre postnatal de luxe à Ipoh | Luxy & Love'],
+        'Language': ['语言', '言語', 'Bahasa', 'Langue'],
+        'Select language': ['选择语言', '言語を選択', 'Pilih bahasa', 'Choisir la langue'],
+        'Primary navigation': ['主导航', 'メインナビゲーション', 'Navigasi utama', 'Navigation principale'],
+        'Postnatal Wellness': ['产后护理', '産後ウェルネス', 'Penjagaan Selepas Bersalin', 'Bien-être postnatal'],
+        'Our Story': ['我们的故事', '私たちの物語', 'Kisah Kami', 'Notre histoire'],
+        'Services': ['服务', 'サービス', 'Perkhidmatan', 'Services'],
+        'Facilities': ['设施', '施設', 'Kemudahan', 'Installations'],
+        'Cuisine': ['膳食', 'お食事', 'Hidangan', 'Cuisine'],
+        'Contact': ['联系我们', 'お問い合わせ', 'Hubungi Kami', 'Contact'],
+        'Schedule a Visit': ['预约参观', '見学を予約', 'Jadualkan Lawatan', 'Planifier une visite'],
+        'Schedule A Visit': ['预约参观', '見学を予約', 'Jadualkan Lawatan', 'Planifier une visite'],
+        'Open menu': ['打开菜单', 'メニューを開く', 'Buka menu', 'Ouvrir le menu'],
+        'A sanctuary for new beginnings': ['迎接新生的温馨港湾', '新しい始まりのための安らぎの場所', 'Tempat perlindungan untuk permulaan baharu', 'Un havre pour un nouveau départ'],
+        'Postnatal Wellness Home': ['产后护理之家', '産後ウェルネスホーム', 'Rumah Penjagaan Selepas Bersalin', 'Maison de bien-être postnatal'],
+        'Experience premium postpartum recovery, professional newborn care, nutritious confinement meals, and personalised wellness support in the heart of Ipoh.': ['在怡保市中心享受优质产后恢复、专业新生儿护理、营养月子餐和个性化健康支持。', 'イポー中心部で、上質な産後回復ケア、新生児ケア、栄養豊富なお食事、個別ウェルネスサポートをご体験ください。', 'Nikmati pemulihan selepas bersalin premium, penjagaan bayi profesional, hidangan berpantang berkhasiat dan sokongan kesejahteraan peribadi di tengah Ipoh.', 'Profitez à Ipoh de soins postnataux haut de gamme, de soins professionnels pour bébé, de repas nourrissants et d’un accompagnement personnalisé.'],
+        'WhatsApp Us': ['WhatsApp 联系我们', 'WhatsAppで相談', 'WhatsApp Kami', 'Contactez-nous sur WhatsApp'],
+        'Discover': ['探索', '詳しく見る', 'Terokai', 'Découvrir'],
+        'Previous hero slide': ['上一张主图', '前のスライド', 'Slaid utama sebelumnya', 'Diapositive précédente'],
+        'Next hero slide': ['下一张主图', '次のスライド', 'Slaid utama seterusnya', 'Diapositive suivante'],
+        'Professional Caregivers': ['专业护理人员', '専門ケアスタッフ', 'Penjaga Profesional', 'Personnel soignant qualifié'],
+        '24-Hour Nursery Care': ['24小时婴儿护理', '24時間の新生児ケア', 'Penjagaan Bayi 24 Jam', 'Nurserie 24 h/24'],
+        'Nutritious Meals': ['营养膳食', '栄養豊富なお食事', 'Hidangan Berkhasiat', 'Repas nutritifs'],
+        'Personalised Wellness': ['个性化健康护理', '個別ウェルネス', 'Kesejahteraan Peribadi', 'Bien-être personnalisé'],
+        'TCM Recovery Support': ['中医调理支持', '中医学による回復サポート', 'Sokongan Pemulihan TCM', 'Soutien par la médecine chinoise'],
+        'Luxury Accommodation': ['豪华住宿', '上質な宿泊環境', 'Penginapan Mewah', 'Hébergement de luxe'],
+        'Love': ['爱', '愛', 'Kasih Sayang', 'Amour'],
+        'is at the heart of everything we do.': ['是我们一切服务的核心。', 'すべてのケアの中心にあります。', 'adalah teras dalam segala yang kami lakukan.', 'est au cœur de tout ce que nous faisons.'],
+        "A Husband's Love": ['丈夫的爱', '夫から妻への愛', 'Kasih Seorang Suami', 'L’amour d’un mari'],
+        'For His Wife': ['献给妻子', '妻のために', 'Untuk Isterinya', 'Pour son épouse'],
+        'Luxy & Love was founded with one simple belief:': ['Luxy & Love 源于一个简单的信念：', 'Luxy & Loveは、ひとつの想いから生まれました。', 'Luxy & Love diasaskan atas satu kepercayaan:', 'Luxy & Love est né d’une conviction simple :'],
+        'Every mother deserves healing, recovery, rest, and unconditional care after bringing new life into the world.': ['每位母亲在迎接新生命后，都值得获得疗愈、恢复、休息与无条件的关爱。', '新しい命を迎えたすべてのお母さまに、癒やし、回復、休息、そして心からのケアを。', 'Setiap ibu berhak menerima pemulihan, rehat dan penjagaan tanpa syarat selepas melahirkan.', 'Chaque mère mérite guérison, repos et soins inconditionnels après avoir donné la vie.'],
+        '“At Luxy & Love, mothers are not simply cared for. They are cherished.”': ['“在 Luxy & Love，我们不只是照顾妈妈，更用心珍爱每一位妈妈。”', '「Luxy & Loveでは、お母さまをお世話するだけでなく、大切に慈しみます。」', '“Di Luxy & Love, para ibu bukan sekadar dijaga. Mereka dihargai sepenuh hati.”', '« Chez Luxy & Love, les mamans ne sont pas seulement soignées. Elles sont chéries. »'],
+        'The Luxy & Love Difference': ['Luxy & Love 的不同之处', 'Luxy & Loveのこだわり', 'Keistimewaan Luxy & Love', 'La différence Luxy & Love'],
+        'Care, elevated.': ['升华每一份关怀。', 'ワンランク上のケア。', 'Penjagaan yang dipertingkatkan.', 'Le soin, sublimé.'],
+        'Thoughtful expertise and refined comfort come together for a recovery experience designed entirely around mother and baby.': ['专业知识与精致舒适相结合，为妈妈和宝宝打造专属恢复体验。', '専門性と上質な快適さを組み合わせ、お母さまと赤ちゃんのための回復体験をご提供します。', 'Kepakaran dan keselesaan digabungkan untuk pengalaman pemulihan yang direka khas untuk ibu dan bayi.', 'Expertise et confort raffiné s’unissent pour une expérience entièrement pensée pour la maman et son bébé.'],
+        'Professional Medical Support': ['专业医疗支持', '専門的な医療サポート', 'Sokongan Perubatan Profesional', 'Soutien médical professionnel'],
+        'Attentive wellness monitoring and experienced support throughout your stay.': ['入住期间提供细致的健康监测和经验丰富的支持。', 'ご滞在中、きめ細かな健康管理と経験豊富なサポートを行います。', 'Pemantauan kesihatan yang teliti dan sokongan berpengalaman sepanjang penginapan anda.', 'Un suivi attentif et un accompagnement expérimenté tout au long de votre séjour.'],
+        'Dedicated Newborn Care': ['专属新生儿护理', '新生児専任ケア', 'Penjagaan Bayi Khusus', 'Soins dédiés au nouveau-né'],
+        'Gentle, round-the-clock nursery care that lets parents rest with confidence.': ['全天候温柔细致的婴儿护理，让父母安心休息。', '24時間のやさしい新生児ケアで、ご家族にも安心してお休みいただけます。', 'Penjagaan nurseri yang lembut sepanjang masa supaya ibu bapa dapat berehat dengan tenang.', 'Des soins doux 24 h/24 pour permettre aux parents de se reposer en toute confiance.'],
+        'Personalised Recovery': ['个性化恢复方案', '個別回復プラン', 'Pemulihan Peribadi', 'Rétablissement personnalisé'],
+        'A tailored programme thoughtfully shaped around your body and wellbeing.': ['根据您的身体状况和健康需求精心定制恢复方案。', 'お身体と健康状態に合わせた個別プログラムをご用意します。', 'Program khusus yang dibentuk mengikut tubuh dan kesejahteraan anda.', 'Un programme personnalisé selon votre corps et votre bien-être.'],
+        'Emotional Wellness': ['情绪健康支持', '心のウェルネス', 'Kesejahteraan Emosi', 'Bien-être émotionnel'],
+        'A nurturing environment where every mother feels heard, reassured and valued.': ['营造温暖环境，让每位妈妈都被倾听、被安慰、被重视。', 'すべてのお母さまが理解され、安心し、大切にされる環境です。', 'Persekitaran penyayang yang membuat setiap ibu rasa didengari, diyakinkan dan dihargai.', 'Un environnement bienveillant où chaque maman se sent écoutée, rassurée et valorisée.'],
+        'Traditional Chinese Recovery': ['传统中式调理', '伝統的な中医学ケア', 'Pemulihan Tradisional Cina', 'Récupération traditionnelle chinoise'],
+        'Time-honoured principles blended with modern postnatal wellness practices.': ['融合传统调理智慧与现代产后健康护理。', '伝統的な知恵と現代の産後ウェルネスを融合します。', 'Prinsip tradisional digabungkan dengan amalan kesejahteraan selepas bersalin moden.', 'Des principes traditionnels associés aux pratiques postnatales modernes.'],
+        'Serene, private suites with the warmth and polish of a boutique retreat.': ['宁静私密的套房，兼具精品度假空间的温馨与精致。', 'ブティックリトリートのような温かさと上質さを備えた静かな個室です。', 'Suite peribadi yang tenang dengan kehangatan dan kemasan pusat percutian butik.', 'Des suites privées et paisibles, chaleureuses et raffinées comme un hôtel boutique.'],
+        'Our Services': ['我们的服务', 'サービス内容', 'Perkhidmatan Kami', 'Nos services'],
+        'Everything you need to recover beautifully.': ['为美好恢复准备的一切。', '美しく健やかな回復に必要なすべてを。', 'Segala yang anda perlukan untuk pulih dengan baik.', 'Tout ce dont vous avez besoin pour vous rétablir sereinement.'],
+        'From expert mother and baby care to restorative treatments, every detail is designed to help you feel stronger, calmer and deeply cared for.': ['从专业母婴护理到恢复疗程，每个细节都帮助您变得更强健、更平静，并感受到贴心照顾。', '母子ケアから回復トリートメントまで、より健やかに穏やかに過ごせるよう細部まで配慮します。', 'Daripada penjagaan ibu dan bayi hingga rawatan pemulihan, setiap perincian membantu anda berasa lebih kuat, tenang dan dihargai.', 'Des soins mère-bébé aux traitements réparateurs, chaque détail vous aide à vous sentir plus forte, sereine et entourée.'],
+        'Mother Care': ['妈妈护理', 'お母さまのケア', 'Penjagaan Ibu', 'Soins de la maman'],
+        'Baby Care': ['宝宝护理', '赤ちゃんのケア', 'Penjagaan Bayi', 'Soins du bébé'],
+        'Wellness Treatments': ['健康调理项目', 'ウェルネストリートメント', 'Rawatan Kesejahteraan', 'Soins bien-être'],
+        'Wellness Monitoring': ['健康监测', '健康モニタリング', 'Pemantauan Kesihatan', 'Suivi du bien-être'],
+        'Breastfeeding Support': ['母乳喂养支持', '授乳サポート', 'Sokongan Penyusuan', 'Soutien à l’allaitement'],
+        'Recovery Consultation': ['恢复咨询', '回復カウンセリング', 'Konsultasi Pemulihan', 'Consultation de récupération'],
+        'Emotional Care': ['情绪关怀', '心のケア', 'Penjagaan Emosi', 'Soutien émotionnel'],
+        'Nursery Care': ['婴儿室护理', '新生児室ケア', 'Penjagaan Nurseri', 'Soins en nurserie'],
+        'Feeding Support': ['喂养支持', '授乳・哺乳サポート', 'Sokongan Penyusuan Bayi', 'Soutien à l’alimentation'],
+        'Bathing Assistance': ['洗澡协助', '沐浴サポート', 'Bantuan Memandikan Bayi', 'Aide au bain'],
+        'Newborn Monitoring': ['新生儿监测', '新生児モニタリング', 'Pemantauan Bayi Baru Lahir', 'Surveillance du nouveau-né'],
+        'Postnatal Massage': ['产后按摩', '産後マッサージ', 'Urutan Selepas Bersalin', 'Massage postnatal'],
+        'Herbal Therapy': ['草本疗法', 'ハーブ療法', 'Terapi Herba', 'Thérapie aux plantes'],
+        'Hair Wash Treatment': ['洗发护理', '洗髪トリートメント', 'Rawatan Cuci Rambut', 'Soin capillaire'],
+        'Facial Treatment': ['面部护理', 'フェイシャルトリートメント', 'Rawatan Wajah', 'Soin du visage'],
+        'Luxury Facilities': ['豪华设施', '上質な施設', 'Kemudahan Mewah', 'Installations de luxe'],
+        'Your private sanctuary.': ['您的私人休养空间。', 'あなただけの安らぎの空間。', 'Tempat perlindungan peribadi anda.', 'Votre havre privé.'],
+        'Quiet luxury, warm details, and spaces created for true rest.': ['低调奢华、温暖细节，以及为真正休息而打造的空间。', '静かな上質さと温かなディテール、心から休める空間です。', 'Kemewahan yang tenang, perincian mesra dan ruang yang dicipta untuk rehat sebenar.', 'Un luxe discret, des détails chaleureux et des espaces conçus pour un vrai repos.'],
+        'Premium Suite': ['尊贵套房', 'プレミアムスイート', 'Suite Premium', 'Suite premium'],
+        'Dining Area': ['用餐区', 'ダイニングエリア', 'Ruang Makan', 'Salle à manger'],
+        'Baby Nursery': ['婴儿室', 'ベビールーム', 'Nurseri Bayi', 'Nurserie'],
+        'Lounge Area': ['休息区', 'ラウンジ', 'Ruang Rehat', 'Salon'],
+        'Wellness Room': ['调理室', 'ウェルネスルーム', 'Bilik Kesejahteraan', 'Salle de bien-être'],
+        'Reception': ['接待处', '受付', 'Kaunter Sambutan', 'Réception'],
+        'Confinement Cuisine': ['月子膳食', '産後養生料理', 'Hidangan Berpantang', 'Cuisine postnatale'],
+        'Nutrition designed': ['营养设计', '回復のために考えた', 'Nutrisi direka', 'Une nutrition pensée'],
+        'for recovery.': ['助力恢复。', '栄養。', 'untuk pemulihan.', 'pour la récupération.'],
+        'Beautifully prepared meals balance traditional confinement wisdom with modern nutrition, bringing comfort and nourishment to every day of your stay.': ['精心烹制的膳食结合传统月子智慧与现代营养，为您的每一天带来舒适与滋养。', '伝統的な産後養生の知恵と現代栄養学を調和させたお食事で、毎日に安らぎと栄養をお届けします。', 'Hidangan yang disediakan dengan indah mengimbangi kebijaksanaan berpantang tradisional dengan nutrisi moden.', 'Des repas soigneusement préparés allient traditions postnatales et nutrition moderne pour vous réconforter et vous nourrir.'],
+        'Promote healing': ['促进疗愈', '回復を促進', 'Menggalakkan penyembuhan', 'Favoriser la guérison'],
+        'Support lactation': ['支持泌乳', '授乳をサポート', 'Menyokong penyusuan', 'Soutenir l’allaitement'],
+        'Restore energy': ['恢复活力', '活力を回復', 'Memulihkan tenaga', 'Restaurer l’énergie'],
+        'Aid recovery': ['帮助恢复', '回復を支援', 'Membantu pemulihan', 'Faciliter la récupération'],
+        'Recovery Meals': ['恢复膳食', '回復食', 'Hidangan Pemulihan', 'Repas de récupération'],
+        'Your Recovery Journey': ['您的恢复旅程', '回復までの流れ', 'Perjalanan Pemulihan Anda', 'Votre parcours de récupération'],
+        'With you, every step.': ['每一步，都与您同行。', '一歩一歩、寄り添います。', 'Bersama anda, di setiap langkah.', 'À vos côtés, à chaque étape.'],
+        'Consultation': ['咨询', 'ご相談', 'Konsultasi', 'Consultation'],
+        'Reservation': ['预订', 'ご予約', 'Tempahan', 'Réservation'],
+        'Arrival': ['入住', 'ご到着', 'Ketibaan', 'Arrivée'],
+        'Recovery Plan': ['恢复计划', '回復プラン', 'Pelan Pemulihan', 'Plan de récupération'],
+        'Wellness': ['健康调理', 'ウェルネス', 'Kesejahteraan', 'Bien-être'],
+        'Graduation Day': ['圆满出院', 'ご退所の日', 'Hari Tamat', 'Jour du départ'],
+        'Words From Mothers': ['妈妈们的心声', 'お母さまたちの声', 'Kata-kata Para Ibu', 'Témoignages de mamans'],
+        'Loved, in their own words.': ['她们亲口诉说的爱与关怀。', '愛された実感を、その言葉で。', 'Disayangi, dalam kata-kata mereka sendiri.', 'Aimées, selon leurs propres mots.'],
+        'Frequently Asked': ['常见问题', 'よくあるご質問', 'Soalan Lazim', 'Questions fréquentes'],
+        'A little clarity brings peace of mind.': ['多一份了解，多一份安心。', '少しの理解が、大きな安心に。', 'Sedikit penjelasan memberi ketenangan.', 'Quelques réponses pour plus de sérénité.'],
+        'We’re here to make planning your postpartum journey simple and reassuring.': ['我们致力于让您的产后旅程规划简单又安心。', '産後の計画をわかりやすく、安心して進められるようお手伝いします。', 'Kami membantu menjadikan perancangan perjalanan selepas bersalin anda mudah dan meyakinkan.', 'Nous vous aidons à préparer votre parcours postnatal simplement et sereinement.'],
+        'Ask us anything': ['欢迎咨询我们', '何でもご相談ください', 'Tanya kami apa sahaja', 'Posez-nous vos questions'],
+        'When should I book?': ['什么时候预订？', 'いつ予約すればよいですか？', 'Bilakah saya perlu membuat tempahan?', 'Quand dois-je réserver ?'],
+        'We recommend enquiring during your second trimester, as suites are limited and popular delivery periods fill early.': ['建议您在孕中期咨询，因为套房数量有限，热门预产期通常较早订满。', '客室数に限りがあるため、妊娠中期のお問い合わせをおすすめします。', 'Kami mengesyorkan pertanyaan dibuat semasa trimester kedua kerana suite adalah terhad.', 'Nous conseillons de vous renseigner au deuxième trimestre, car les suites sont limitées.'],
+        'How long should I stay?': ['应该入住多久？', '滞在期間はどのくらいですか？', 'Berapa lama saya perlu menginap?', 'Combien de temps dois-je rester ?'],
+        'A traditional confinement stay is usually 28 days, though we can discuss the programme and duration that best suit your needs.': ['传统月子期通常为28天，我们也可以根据您的需求讨论最合适的方案和时长。', '一般的な滞在は28日間ですが、ご希望に合わせて期間とプログラムをご相談いただけます。', 'Tempoh berpantang tradisional biasanya 28 hari, namun program dan tempoh boleh dibincangkan mengikut keperluan anda.', 'Un séjour traditionnel dure généralement 28 jours, mais nous adaptons le programme à vos besoins.'],
+        'Can family members visit?': ['家人可以探访吗？', '家族は面会できますか？', 'Bolehkah ahli keluarga melawat?', 'La famille peut-elle rendre visite ?'],
+        'Yes. Visits are welcomed during designated hours, with sensible hygiene and nursery protocols to protect mothers and newborns.': ['可以。家人可在指定时间探访，并需遵守卫生和婴儿室规定，以保护妈妈和新生儿。', 'はい。指定時間内に、衛生・新生児室のルールを守ってご面会いただけます。', 'Ya. Lawatan dibenarkan pada waktu yang ditetapkan dengan mematuhi protokol kebersihan dan nurseri.', 'Oui. Les visites sont possibles à des horaires définis, dans le respect des règles d’hygiène.'],
+        'Do you support breastfeeding?': ['你们提供母乳喂养支持吗？', '授乳サポートはありますか？', 'Adakah anda menyediakan sokongan penyusuan?', 'Proposez-vous un soutien à l’allaitement ?'],
+        'Yes. Our team provides practical guidance with latching, feeding routines, expressing and maternal nutrition.': ['有。我们的团队会针对衔乳、喂养规律、挤奶和妈妈营养提供实用指导。', 'はい。授乳姿勢、授乳リズム、搾乳、母体の栄養について実践的にサポートします。', 'Ya. Pasukan kami memberikan panduan praktikal tentang lekapan, rutin penyusuan, pemerahan dan pemakanan ibu.', 'Oui. Notre équipe conseille sur la mise au sein, les rythmes, l’expression du lait et la nutrition maternelle.'],
+        'Are nurses available?': ['有护理人员吗？', '看護スタッフはいますか？', 'Adakah jururawat disediakan?', 'Des infirmières sont-elles disponibles ?'],
+        'Our trained care team supports mothers and newborns around the clock. Contact us for current staffing and clinical coverage details.': ['经过培训的护理团队全天候支持妈妈和新生儿。请联系我们了解当前人员配置和护理范围。', '訓練を受けたケアチームが24時間サポートします。現在の体制はお問い合わせください。', 'Pasukan penjagaan terlatih kami menyokong ibu dan bayi sepanjang masa. Hubungi kami untuk maklumat semasa.', 'Notre équipe formée accompagne mamans et nouveau-nés 24 h/24. Contactez-nous pour les détails actuels.'],
+        'Follow Our Journey': ['关注我们的旅程', '日々の様子', 'Ikuti Perjalanan Kami', 'Suivez notre quotidien'],
+        'See life at Luxy & Love.': ['看看 Luxy & Love 的日常。', 'Luxy & Loveの日常をご覧ください。', 'Lihat kehidupan di Luxy & Love.', 'Découvrez la vie chez Luxy & Love.'],
+        'Latest moments, stories and updates from our Facebook community.': ['在 Facebook 社群查看最新时刻、故事与动态。', 'Facebookコミュニティの最新の様子やお知らせをご覧ください。', 'Ikuti detik, kisah dan kemas kini terbaru daripada komuniti Facebook kami.', 'Découvrez les derniers moments, histoires et actualités de notre communauté Facebook.'],
+        'Follow on Facebook': ['在 Facebook 关注我们', 'Facebookでフォロー', 'Ikuti di Facebook', 'Suivre sur Facebook'],
+        'Begin Your Journey': ['开启您的旅程', 'あなたの旅を始めましょう', 'Mulakan Perjalanan Anda', 'Commencez votre parcours'],
+        'Come and feel': ['亲自感受', 'ぜひ体感してください', 'Datang dan rasai', 'Venez découvrir'],
+        'the difference.': ['我们的不同。', 'その違いを。', 'perbezaannya.', 'la différence.'],
+        'Schedule a private visit and discover a place where exceptional care feels beautifully personal.': ['预约私人参观，感受专业护理如何变得温暖而个性化。', '個別見学を予約し、心のこもった特別なケアをご体験ください。', 'Jadualkan lawatan peribadi dan temui tempat dengan penjagaan luar biasa yang benar-benar peribadi.', 'Planifiez une visite privée et découvrez des soins d’exception, profondément personnalisés.'],
+        'Schedule a private visit': ['预约私人参观', '個別見学を予約', 'Jadualkan lawatan peribadi', 'Planifier une visite privée'],
+        'Complete the details below and continue the conversation on WhatsApp.': ['填写以下资料后，通过 WhatsApp 继续咨询。', '以下をご入力いただき、WhatsAppでご相談ください。', 'Lengkapkan butiran di bawah dan teruskan perbualan melalui WhatsApp.', 'Complétez les informations ci-dessous puis poursuivez sur WhatsApp.'],
+        'Your name': ['您的姓名', 'お名前', 'Nama anda', 'Votre nom'],
+        'Phone number': ['电话号码', '電話番号', 'Nombor telefon', 'Numéro de téléphone'],
+        'Expected delivery date': ['预产期', '出産予定日', 'Tarikh jangkaan bersalin', 'Date prévue d’accouchement'],
+        'How can we help?': ['我们可以如何帮助您？', 'どのようなお手伝いが必要ですか？', 'Bagaimanakah kami boleh membantu?', 'Comment pouvons-nous vous aider ?'],
+        'Send via WhatsApp': ['通过 WhatsApp 发送', 'WhatsAppで送信', 'Hantar melalui WhatsApp', 'Envoyer via WhatsApp'],
+        'Because Every Mother Deserves To Be Loved': ['因为每位妈妈都值得被爱', 'すべてのお母さまに愛される価値があるから', 'Kerana Setiap Ibu Layak Disayangi', 'Parce que chaque maman mérite d’être aimée'],
+        'All rights reserved.': ['版权所有。', '無断転載を禁じます。', 'Hak cipta terpelihara.', 'Tous droits réservés.'],
+        'Email': ['电邮', 'メール', 'E-mel', 'E-mail'],
+        'Chat on WhatsApp': ['通过 WhatsApp 聊天', 'WhatsAppでチャット', 'Berbual di WhatsApp', 'Discuter sur WhatsApp'],
+        'Call Luxy and Love': ['致电 Luxy & Love', 'Luxy & Loveに電話', 'Hubungi Luxy & Love', 'Appeler Luxy & Love'],
+        'Back to top': ['返回顶部', 'ページ上部へ', 'Kembali ke atas', 'Retour en haut'],
+        'Close lightbox': ['关闭图片', '画像を閉じる', 'Tutup paparan imej', 'Fermer l’image']
+      };
+      const languageCodes = { zh: 0, ja: 1, ms: 2, fr: 3 };
+      const originalTextNodes = [];
+      const originalAttributes = [];
+      const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      while (textWalker.nextNode()) {
+        const node = textWalker.currentNode;
+        if (node.parentElement && !['SCRIPT', 'STYLE', 'OPTION'].includes(node.parentElement.tagName) && node.textContent.trim()) {
+          originalTextNodes.push({ node, text: node.textContent });
+        }
+      }
+      document.querySelectorAll('[aria-label], [title], [alt], [data-label]').forEach(element => {
+        ['aria-label', 'title', 'alt', 'data-label'].forEach(attribute => {
+          if (element.hasAttribute(attribute)) originalAttributes.push({ element, attribute, text: element.getAttribute(attribute) });
+        });
+      });
+
+      const translateValue = (value, language) => {
+        if (language === 'en' || !translationRows[value]) return value;
+        return translationRows[value][languageCodes[language]] || value;
+      };
+      const applyLanguage = language => {
+        const supportedLanguage = ['en', 'zh', 'ja', 'ms', 'fr'].includes(language) ? language : 'en';
+        originalTextNodes.forEach(({ node, text }) => {
+          const trimmed = text.trim();
+          if (!trimmed) return;
+          const translated = translateValue(trimmed, supportedLanguage);
+          node.textContent = text.replace(trimmed, translated);
+        });
+        originalAttributes.forEach(({ element, attribute, text }) => {
+          element.setAttribute(attribute, translateValue(text, supportedLanguage));
+        });
+        document.title = translateValue('Luxury Confinement Centre Ipoh | Luxy & Love Postnatal Wellness Home', supportedLanguage);
+        document.documentElement.lang = supportedLanguage === 'zh' ? 'zh-CN' : supportedLanguage;
+        languageSelects.forEach(select => { select.value = supportedLanguage; });
+        try { localStorage.setItem('luxyLanguage', supportedLanguage); } catch (error) {}
+      };
+      let savedLanguage = 'en';
+      try {
+        savedLanguage = localStorage.getItem('luxyLanguage') || ({ zh: 'zh', ja: 'ja', ms: 'ms', fr: 'fr' }[navigator.language.slice(0, 2)] || 'en');
+      } catch (error) {}
+      languageSelects.forEach(select => select.addEventListener('change', event => applyLanguage(event.target.value)));
 
       const setNav = () => {
         const scrolled = window.scrollY > 40;
@@ -450,6 +648,10 @@
         document.querySelector('.nav-logo').classList.toggle('text-charcoal', scrolled);
         document.querySelector('.nav-sub').classList.toggle('text-white/75', !scrolled);
         document.querySelector('.nav-sub').classList.toggle('text-charcoal/50', scrolled);
+        document.querySelector('.nav-language').classList.toggle('text-white', !scrolled);
+        document.querySelector('.nav-language').classList.toggle('text-charcoal', scrolled);
+        document.querySelector('.nav-language').classList.toggle('border-white/50', !scrolled);
+        document.querySelector('.nav-language').classList.toggle('border-rose-200', scrolled);
         if (!menuOpen) {
           menuBtn.classList.toggle('text-white', !scrolled);
           menuBtn.classList.toggle('text-charcoal', scrolled);
@@ -462,6 +664,7 @@
       };
       window.addEventListener('scroll', setNav, { passive: true });
       setNav();
+      applyLanguage(savedLanguage);
 
       const toggleMenu = () => {
         menuOpen = !menuOpen;
