@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#8f5f5f">
+  <meta name="theme-color" content="#c94f88">
   <meta name="description" content="Luxy & Love Postnatal Wellness Home is a luxury confinement centre in Ipoh offering premium mother care, 24-hour newborn care, wellness treatments and nutritious confinement cuisine.">
   <meta name="keywords" content="Confinement Centre Ipoh, Postnatal Wellness Home Ipoh, 月子中心怡保, Pantang Centre Ipoh, Luxury Confinement Centre Malaysia">
   <meta name="author" content="Luxy & Love Postnatal Wellness Home">
@@ -11,9 +11,10 @@
   <meta property="og:url" content="https://luxylove.com.my/">
   <meta property="og:title" content="Luxy & Love | Luxury Postnatal Wellness Home in Ipoh">
   <meta property="og:description" content="Because every mother deserves to be loved. Premium postpartum recovery and newborn care in the heart of Ipoh.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=1600&q=85">
+  <meta property="og:image" content="https://luxylove.com.my/logo.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://luxylove.com.my/">
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
@@ -24,18 +25,20 @@
       theme: {
         extend: {
           colors: {
-            rose: { 50: '#fcf7f7', 100: '#f6e9e9', 300: '#ddb6b6', 500: '#c98a8a', 600: '#ad6d6d', 800: '#704747' },
-            gold: '#D4AF37',
-            cream: '#FAF7F4',
-            charcoal: '#333333'
+            rose: { 50: '#fff5f9', 100: '#fde7f1', 200: '#f9cddd', 300: '#f09abb', 500: '#d95b92', 600: '#c3437c', 800: '#733b59' },
+            gold: '#e7ad75',
+            cream: '#fffaf7',
+            charcoal: '#403943',
+            powder: '#b9d9e9',
+            sage: '#aab49a'
           },
           fontFamily: {
             display: ['"Playfair Display"', 'serif'],
             body: ['Poppins', 'sans-serif']
           },
           boxShadow: {
-            luxe: '0 24px 70px rgba(74, 45, 45, .12)',
-            soft: '0 10px 35px rgba(74, 45, 45, .08)'
+            luxe: '0 24px 70px rgba(111, 64, 89, .13)',
+            soft: '0 10px 35px rgba(111, 64, 89, .09)'
           }
         }
       }
@@ -46,13 +49,13 @@
   <style>
     html { scroll-behavior: smooth; }
     body { overflow-x: hidden; }
-    ::selection { background: #c98a8a; color: #fff; }
-    .nav-scrolled { background: rgba(250,247,244,.92); box-shadow: 0 8px 30px rgba(50,30,30,.08); backdrop-filter: blur(18px); }
+    ::selection { background: #d95b92; color: #fff; }
+    .nav-scrolled { background: rgba(255,250,247,.94); box-shadow: 0 8px 30px rgba(83,54,71,.09); backdrop-filter: blur(18px); }
     .hero-slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.06); transition: opacity 1.2s ease, transform 7s ease; }
     .hero-slide.active { opacity: 1; transform: scale(1); }
-    .hero-gradient { background: linear-gradient(90deg, rgba(35,24,24,.74) 0%, rgba(61,39,39,.48) 45%, rgba(30,20,20,.12) 100%); }
-    .gold-line { background: linear-gradient(90deg, transparent, #D4AF37, transparent); }
-    .text-gradient { background: linear-gradient(120deg, #a96969, #D4AF37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-gradient { background: linear-gradient(90deg, rgba(53,35,49,.78) 0%, rgba(105,58,86,.48) 45%, rgba(45,54,58,.13) 100%); }
+    .gold-line { background: linear-gradient(90deg, transparent, #e7ad75, transparent); }
+    .text-gradient { background: linear-gradient(120deg, #d95b92, #e7ad75 55%, #8ea9b7); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .glass { background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.65); backdrop-filter: blur(18px); }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.from-left { transform: translateX(-35px); }
@@ -67,7 +70,7 @@
     .image-zoom:hover img { transform: scale(1.06); }
     .floating-label input:focus + label, .floating-label input:not(:placeholder-shown) + label,
     .floating-label textarea:focus + label, .floating-label textarea:not(:placeholder-shown) + label {
-      transform: translateY(-1.55rem) scale(.82); color: #ad6d6d; background: #fff; padding: 0 .35rem;
+      transform: translateY(-1.55rem) scale(.82); color: #c3437c; background: #fff; padding: 0 .35rem;
     }
     .floating-label label { transition: .2s ease; transform-origin: left; }
     .scroll-dot { animation: scroll 1.8s infinite; }
@@ -86,7 +89,7 @@
     "url": "https://luxylove.com.my",
     "telephone": "+60194193862",
     "email": "luxylove2020@gmail.com",
-    "image": "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=1600&q=85",
+    "image": "https://luxylove.com.my/logo.jpg",
     "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
@@ -104,7 +107,7 @@
   <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
     <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-24 lg:px-8">
       <a href="#home" class="relative z-50 flex items-center gap-3" aria-label="Luxy and Love home">
-        <span class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 bg-white/90 font-display text-xl text-rose-600">L<span class="text-gold">&</span>L</span>
+        <img src="logo.jpg" alt="Luxy & Love Postnatal Wellness Home logo" class="h-14 w-14 rounded-full border-2 border-white/80 bg-white object-cover shadow-soft lg:h-16 lg:w-16">
         <span class="leading-tight">
           <span class="block font-display text-xl font-semibold text-white transition-colors nav-logo">Luxy & Love</span>
           <span class="block text-[9px] uppercase tracking-[.24em] text-white/75 transition-colors nav-sub">Postnatal Wellness</span>
@@ -403,9 +406,12 @@
     </section>
   </main>
 
-  <footer class="bg-[#282525] py-10 text-white/50">
+  <footer class="bg-[#352f38] py-10 text-white/50">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 text-center sm:flex-row sm:text-left lg:px-8">
-      <div><div class="font-display text-xl text-white">Luxy <span class="text-rose-300">&</span> Love</div><p class="mt-1 text-[10px] uppercase tracking-[.2em]">Because Every Mother Deserves To Be Loved</p></div>
+      <div class="flex items-center gap-4">
+        <img src="logo.jpg" alt="" class="h-16 w-16 rounded-full border-2 border-white/20 bg-white object-cover">
+        <div><div class="font-display text-xl text-white">Luxy <span class="text-rose-300">&</span> Love</div><p class="mt-1 text-[10px] uppercase tracking-[.2em]">Because Every Mother Deserves To Be Loved</p></div>
+      </div>
       <p class="text-xs">&copy; <span id="year"></span> Luxy & Love. All rights reserved.</p>
       <div class="flex gap-5 text-xs"><a href="https://www.facebook.com/luxylovepostnatalwellnesshome/" target="_blank" rel="noopener" class="transition hover:text-white">Facebook</a><a href="mailto:luxylove2020@gmail.com" class="transition hover:text-white">Email</a></div>
     </div>
