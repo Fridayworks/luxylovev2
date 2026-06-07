@@ -870,8 +870,11 @@
       document.getElementById('contactForm').addEventListener('submit', event => {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
-        const text = `Hello Luxy & Love, I would like to schedule a visit.%0A%0AName: ${encodeURIComponent(form.get('name'))}%0APhone: ${encodeURIComponent(form.get('phone'))}%0AExpected delivery date: ${encodeURIComponent(form.get('dueDate') || 'Not specified')}%0AMessage: ${encodeURIComponent(form.get('message') || 'I would like to know more about your packages.')}`;
-        window.open(`https://wa.me/60194193862?text=${text}`, '_blank', 'noopener');
+        const phone = form.get('phone').replace(/\D/g, ''); // Remove non-digit characters
+        const text = `Hello Luxy & Love, I would like to schedule a visit.%0A%0AName: ${encodeURIComponent(form.get('name'))}%0APhone: ${encodeURIComponent(phone)}%0AExpected delivery date: ${encodeURIComponent(form.get('dueDate') || 'Not specified')}%0AMessage: ${encodeURIComponent(form.get('message') || 'I would like to know more about your packages.')}`;
+        // Using the proper international format for the phone number
+        const whatsappUrl = `https://wa.me/60194193862?text=${text}`;
+        window.open(whatsappUrl, '_blank', 'noopener');
       });
 
       backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
